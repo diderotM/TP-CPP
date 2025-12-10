@@ -3,17 +3,22 @@
 Date::Date(int day, int month, int year) : 
     day_(day), month_(month), year_(year) { }
 
-int Date::day() const {
+int Date::day() {
     return day_ ;
 }
-int Date::year() const {
+int Date::year() {
     return year_ ;
 }
-int Date::month() const {
+int Date::month() {
     return month_ ;
 }
 
-
-void day(int day) ;
-void year(int year) ;
-void month(int month) ;
+void Date::day(int day) {
+    day_ = day ;
+}
+void Date::year(int year) {
+    year_ = year ;
+}
+void Date::month(int month) {
+    month_ = month ;
+}
