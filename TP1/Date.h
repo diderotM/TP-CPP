@@ -21,6 +21,4 @@ private:
     int year_ ;
 };
 
-
-
 #endif 
