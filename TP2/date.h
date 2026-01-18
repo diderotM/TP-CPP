@@ -1,7 +1,7 @@
 #ifndef DATE_H
 #define DATE_H
-
 #include <string>
+
 
 class Date
 {
@@ -15,6 +15,10 @@ public:
     void updateDay(int day);
     void updateYear(int year);
     void updateMonth(int month);
+
+    bool operator == (Date &orther_date);
+    bool operator > (Date &orther_date);
+    bool operator < (Date &orther_date);
 private:
     int month_ ;
     int day_ ;

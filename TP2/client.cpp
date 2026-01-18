@@ -42,3 +42,10 @@ void Client::updateLastName(std::string last_name)
 {
     last_name_ = last_name;
 }
+
+std::ostream &operator<<(std::ostream& os, const Client &client)
+{
+    os << "The last name is :"<<client.last_name_<<" the first name is :"<<client.first_name_<<" the id of client is :"<<client.id_client_<<std::endl;   
+    return os;
+}
+

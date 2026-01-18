@@ -20,6 +20,8 @@ public:
     int getIdClient() const; 
     void updateFirstName(std::string first_name);
     void updateLastName(std::string last_name);
+
+    friend std::ostream& operator << (std::ostream& os, const Client& client);
 };
 
 #endif

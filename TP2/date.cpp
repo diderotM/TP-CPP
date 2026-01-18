@@ -2,7 +2,7 @@
 #include <stdexcept>
 
 bool Date::isDate(int month, int day, int year) {
-    if ((year < 2020) || (year > 2050)) return false;
+    if ((year < 2026) || (year > 2027)) return false;
     if ((day < 1) || (day>31)) return false;
     if ((month <1) || (month>12)) return false;
     if ((month == 2) && (day > 28)) return false;
@@ -37,4 +37,25 @@ void Date::updateYear(int year) {
 
 void Date::updateMonth(int month) {
     month_ = month ;
+}
+
+bool Date::operator==(Date &orther_date)
+{   
+    if (year_ != orther_date.year_) return false;
+    if (month_ != orther_date.month_) return false;
+    if (day_ != orther_date.day_) return false;
+}
+
+bool Date::operator > (Date &orther_date)
+{   
+    if (year_ < orther_date.year_) return false;
+    if (month_ < orther_date.month_) return false;
+    if (day_< orther_date.day_) return false;
+}
+
+bool Date::operator < (Date &orther_date)
+{   
+    if (year_ > orther_date.year_) return false;
+    if (month_ > orther_date.month_) return false;
+    if (day_ > orther_date.day_) return false;
 }
