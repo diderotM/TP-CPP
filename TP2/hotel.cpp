@@ -1,6 +1,6 @@
 #include "hotel.h"
 
-Hotel::Hotel(std::string id_hotel, std::string name, std::string city, std::vector<Bedroom*> bedroom):id_hotel_(id_hotel), name_(name), bedroom_(bedroom)
+Hotel::Hotel(std::string id_hotel, std::string name, std::string city, std::vector<Bedroom*> bedroom):id_hotel_(id_hotel), name_(name), bedroom_(std::move(bedroom))
 {
     if (isHotel(bedroom))
     {

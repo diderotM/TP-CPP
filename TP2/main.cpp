@@ -3,6 +3,7 @@
 #include "client.h"
 #include "bedroom.h"
 #include "hotel.h"
+#include "reservation.h"
 
 
 
@@ -27,5 +28,10 @@ int main(){
     Hotel hotel("Louv01", "Louvre", " Dijon", bedrooms);
     std::cout << hotel;
 
+    std::cout << "----------------test of Bedroom class------------------" << std::endl;
+
+    Date start_reservation1(01, 20, 2026);
+    Reservation reservation1(start_reservation1, 4, bedroom2.getNumBedroom(), cl1.getIdClient(), hotel.getIdHotel(), bedroom2.getPriceOfNight());
+    std::cout<<reservation1;
     return 0;
 }
