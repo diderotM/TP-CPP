@@ -13,7 +13,7 @@ enum class TypeOfBedroom
 class Bedroom
 {
     public:
-        Bedroom(int num_bedroom, float price_of_night, TypeOfBedroom type_of_bedroom);
+        Bedroom(int num_bedroom, float price_of_night, TypeOfBedroom type_of_bedroom, bool is_availanle=true);
         bool isBedroom(int num_bedroom, float price_of_night, TypeOfBedroom type_of_bedroom);
         
         int getNumBedroom() const;
@@ -23,13 +23,16 @@ class Bedroom
         void updateNumBedroom(int num_bedroom);
         void updatePriceOfNight(float new_price);
         void updateTypeOfBedroom(TypeOfBedroom new_type);
+
         bool operator == (Bedroom& bedroom);
         friend std::ostream& operator << (std::ostream& os, Bedroom &bedroom);
+        friend std::ostream& operator >> (std::ostream& os, TypeOfBedroom &type_of_bedroom);
 
     private:
         int num_bedroom_;
         float price_of_night_;
         TypeOfBedroom type_of_bedroom_;
+        bool is_available_;
 };
 
 std::string toString(TypeOfBedroom type_of_bedroom);

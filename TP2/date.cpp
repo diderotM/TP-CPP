@@ -39,23 +39,59 @@ void Date::updateMonth(int month) {
     month_ = month ;
 }
 
-bool Date::operator==(Date &orther_date)
+Date Date::operator+(const int day)
+{
+    day_ +=day;
+    int add_month = 0;
+
+    do
+    {
+        if(((month_ == 4) || (month_ == 6) || (month_ == 9)|| (month_ == 11)) && (day_ > 30)) 
+        {
+            add_month++;
+            day_-=30;
+        }
+        if(month_ == 2 && day_>28)
+        {
+            add_month++;
+            day_-=28;
+        }
+        if(((month_ == 1) || (month_ == 3) || (month_ == 5)|| (month_ == 7)|| (month_ == 8)|| (month_ == 10)|| (month_ == 12)) && (day_ > 30))
+        {
+            add_month++;
+            day_-=31;
+        }
+        if (month_>12)
+        {
+            month_=1;
+            year_++;
+        }
+        
+    } while (day_>31);
+
+    return Date(month_+add_month, day_, year_);
+    
+}
+
+bool Date::operator==(const Date &orther_date)
 {   
     if (year_ != orther_date.year_) return false;
     if (month_ != orther_date.month_) return false;
     if (day_ != orther_date.day_) return false;
 }
 
-bool Date::operator > (Date &orther_date)
+bool Date::operator > (const Date &orther_date)
 {   
     if (year_ < orther_date.year_) return false;
     if (month_ < orther_date.month_) return false;
     if (day_< orther_date.day_) return false;
 }
 
-bool Date::operator < (Date &orther_date)
+bool Date::operator < (const Date &orther_date)
 {   
     if (year_ > orther_date.year_) return false;
     if (month_ > orther_date.month_) return false;
     if (day_ > orther_date.day_) return false;
 }
+
+

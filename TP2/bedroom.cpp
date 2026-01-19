@@ -1,7 +1,7 @@
 #include "bedroom.h"
 
 
-Bedroom::Bedroom(int num_bedroom, float price_of_night, TypeOfBedroom type_of_bedroom):num_bedroom_(num_bedroom), price_of_night_(price_of_night), type_of_bedroom_(type_of_bedroom)
+Bedroom::Bedroom(int num_bedroom, float price_of_night, TypeOfBedroom type_of_bedroom, bool is_available):num_bedroom_(num_bedroom), price_of_night_(price_of_night), type_of_bedroom_(type_of_bedroom), is_available_(is_available)
 {
     if(isBedroom(num_bedroom, price_of_night, type_of_bedroom))
         throw std::invalid_argument("Invalid Beedroom: number of bedroom" + std::to_string(num_bedroom) + ", price of bedroom" + std::to_string(price_of_night) + ", type of bedroom" + toString(type_of_bedroom));
@@ -57,6 +57,29 @@ std::ostream &operator<<(std::ostream &os, Bedroom &bedroom)
     return os;
 }
 
+// std::istream &operator>>(std::istream &is, TypeOfBedroom &type_of_bedroom)
+// {
+//     // TODO: insert return statement here
+//     std::cout<<"enter the type of bedroom (1:Single, 2:Double, 3:Suite):";
+//     int input;
+//     if (is >> input) { // On lit d'abord un entier
+//         switch (input) {
+//             case 1: 
+//                 type_of_bedroom = TypeOfBedroom::Single; 
+//                 break;
+//             case 2: 
+//                 type_of_bedroom = TypeOfBedroom::Double; 
+//                 break;
+//             case 3: 
+//                 type_of_bedroom = TypeOfBedroom::Suite;
+//                 break;
+//             default: 
+//                 throw std::invalid_argument (toString(type_of_bedroom).toSring() + "Unknown this type of bedroom"); // Erreur si hors limites
+//         }
+//     }
+//     return is;
+//     is>>type_of_bedroom;
+// }
 
 // Fonction utilitaire (Helper) pour la conversion de TypeOfBedroom en string
 std::string toString(TypeOfBedroom type_of_bedroom) {
@@ -71,3 +94,5 @@ std::string toString(TypeOfBedroom type_of_bedroom) {
             return "Unknown";
     }
 }
+
+

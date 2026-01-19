@@ -16,9 +16,10 @@ public:
     void updateYear(int year);
     void updateMonth(int month);
 
-    bool operator == (Date &orther_date);
-    bool operator > (Date &orther_date);
-    bool operator < (Date &orther_date);
+    Date operator + (const int day);
+    bool operator == (const Date &orther_date);
+    bool operator > (const Date &orther_date);
+    bool operator < (const Date &orther_date);
 private:
     int month_ ;
     int day_ ;

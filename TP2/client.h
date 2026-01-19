@@ -21,6 +21,7 @@ public:
     void updateFirstName(std::string first_name);
     void updateLastName(std::string last_name);
 
+    bool operator == (const Client client);
     friend std::ostream& operator << (std::ostream& os, const Client& client);
 };
 

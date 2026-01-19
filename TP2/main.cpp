@@ -5,7 +5,10 @@
 #include "hotel.h"
 #include "reservation.h"
 
+bool isAvailableRoom(Hotel &hotel, Bedroom &bedroom)
+{
 
+}
 
 int main(){
     Date  next_pi_day_ok(3,14,2026);
@@ -83,6 +86,50 @@ int main(){
     {
         std::cout<<**it;
     }
+
+    std::cout<<std::endl<<"7: Préparation d'une réservation"<<std::endl;
+    std::string first_name, last_name;
+    std::cout<<" enter (first name last name)" ; 
+    std::cin>> first_name >> last_name;
+    Client tempoClient(first_name, last_name);
+    std::cout<<tempoClient;
+
+    for(auto it=clients.begin(); it<clients.end(); ++it)
+    {
+        if(!(**it == tempoClient))
+        {
+            clients.push_back(&tempoClient);
+            break;
+        }
+    }
+
+    int month, day, year, nbr_of_day;
+    do
+    {
+        std::cout<<"reservatin : enter (month day year number of night)";
+        std::cin>>month>>day>>year>>nbr_of_day;
+    } while (month < 1 || month>12 || day<1 || day>31 || year<2026 || year>2029 || nbr_of_day<1);
+
+    TypeOfBedroom type_of_bedroom;
+    std::cout<<"enter the type of bedroom (1:Single, 2:Double, 3:Suite):";
+    int input;
+    std::cin>>input;
+    switch (input) 
+    {
+        case 1: 
+            type_of_bedroom = TypeOfBedroom::Single; 
+            break;
+        case 2: 
+            type_of_bedroom = TypeOfBedroom::Double; 
+            break;
+        case 3: 
+            type_of_bedroom = TypeOfBedroom::Suite;
+            break;
+        default: 
+            throw std::invalid_argument (toString(type_of_bedroom) + "Unknown this type of bedroom"); // Erreur si hors limites
+    }
+
+
 
     return 0;
 }
